@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Ejemplo sesion</title>
+<script src = 'js/xhrPromise.js'></script>
+</head>
+
+<input id = "input" type="text">
+<button onclick='sendValue()'>send value</button>
+<button onclick='getValue()'>get value</button>
+<button onclick='sessionDestroy()'>close session</button>
+<body>
+<script>
+var xhr = new XHR();
+function $(id){
+	return document.getElementById(id);
+}
+
+function sendValue(){
+	var input = $('input').value;
+	console.log(input)
+	xhr.post('./Session',{param:input}).then(function(data){
+		console.log(data);
+	});
+}
+function getValue(){
+	xhr.get('./Session',{}).then(function(data){
+		console.log(data);
+	});
+}
+function sessionDestroy(){
+	xhr.get('./SessionDestroy',{}).then(function(data){
+		console.log(data);
+	});
+}
+</script>
+	
+</body>
+</html>
