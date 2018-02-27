@@ -20,7 +20,8 @@ function $(id){
 function sendValue(){
 	var input = $('input').value;
 	console.log(input)
-	xhr.post('./Session',{param:input},{'Content-Type':'application/x-www-form-urlencoded'}).then(function(data){
+	xhr.post('./Session',{param:input},{'Content-Type':'application/x-www-form-urlencoded'}).
+	then(function(data){
 		console.log(data);
 	});
 }
